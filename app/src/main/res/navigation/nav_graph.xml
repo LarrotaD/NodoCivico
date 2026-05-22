@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/splashFragment">
+
+    <fragment
+        android:id="@+id/splashFragment"
+        android:name="com.tuequipo.nodocivico.ui.splash.SplashFragment"
+        android:label="Splash">
+        <action
+            android:id="@+id/action_splash_to_login"
+            app:destination="@id/loginFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.tuequipo.nodocivico.ui.login.LoginFragment"
+        android:label="Login">
+        <action
+            android:id="@+id/action_login_to_home"
+            app:destination="@id/homeFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.tuequipo.nodocivico.ui.home.HomeFragment"
+        android:label="Inicio">
+        <action
+            android:id="@+id/action_home_to_reportList"
+            app:destination="@id/reportListFragment" />
+        <action
+            android:id="@+id/action_home_to_createReport"
+            app:destination="@id/createReportFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/reportListFragment"
+        android:name="com.tuequipo.nodocivico.ui.reports.ReportListFragment"
+        android:label="Lista de Reportes">
+
+        <action
+            android:id="@+id/action_list_to_detail"
+            app:destination="@id/reportDetailFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/createReportFragment"
+        android:name="com.tuequipo.nodocivico.ui.reports.CreateReportFragment"
+        android:label="Formulario de Reporte">
+
+        <argument
+            android:name="reportId"
+            app:argType="integer"
+            android:defaultValue="-1" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/reportDetailFragment"
+        android:name="com.tuequipo.nodocivico.ui.reports.ReportDetailFragment"
+        android:label="Detalle del Reporte">
+
+        <argument
+            android:name="reportId"
+            app:argType="integer" />
+
+        <action
+            android:id="@+id/action_detail_to_edit"
+            app:destination="@id/createReportFragment" />
+    </fragment>
+
+</navigation>
