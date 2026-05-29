@@ -28,9 +28,11 @@ class ReportListFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        // CORREGIDO: Buscamos exactamente el ID del componente del nuevo XML
         val recycler = view.findViewById<RecyclerView>(R.id.recyclerReports)
         val tvEmpty = view.findViewById<TextView>(R.id.tvEmpty)
         val progressLoading = view.findViewById<ProgressBar>(R.id.progressLoading)
+        val tvConnectionBanner = view.findViewById<TextView>(R.id.tvConnectionBanner)
 
         // 1. Configurar el RecyclerView y su LayoutManager
         adapter = ReportAdapter()
@@ -61,5 +63,22 @@ class ReportListFragment : Fragment() {
                 adapter.setReports(reports)
             }
         }
+
+        // Validar conectividad actual al abrir la pantalla
+        if (isInternetAvailable(requireContext())) {
+            tvConnectionBanner.text = "Conectado al servidor - Datos actualizados"
+            tvConnectionBanner.setBackgroundColor(android.graphics.Color.parseColor("#4CAF50")) // Verde
+        } else {
+            tvConnectionBanner.text = "Sin conexión - Modo Offline activo"
+            tvConnectionBanner.setBackgroundColor(android.graphics.Color.parseColor("#F44336")) // Rojo
+        }
+    }
+
+    private fun isInternetAvailable(context: android.content.Context): Boolean {
+        val connectivityManager = context.getSystemService(android.content.Context.CONNECTIVITY_SERVICE) as android.net.ConnectivityManager
+        val network = connectivityManager.activeNetwork ?: return false
+        val activeNetwork = connectivityManager.getNetworkCapabilities(network) ?: return false
+        return activeNetwork.hasTransport(android.net.NetworkCapabilities.TRANSPORT_WIFI) ||
+                activeNetwork.hasTransport(android.net.NetworkCapabilities.TRANSPORT_CELLULAR)
     }
 }

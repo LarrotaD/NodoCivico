@@ -25,4 +25,7 @@ interface ReportDao {
 
     @Delete
     suspend fun deleteReport(report: Report)
+
+    @Query("SELECT * FROM reports WHERE isSynced = 0")
+    suspend fun getUnsyncedReports(): List<Report>
 }

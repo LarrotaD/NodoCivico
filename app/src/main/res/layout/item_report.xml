@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginHorizontal="12dp"
+    android:layout_marginVertical="6dp"
+    app:cardCornerRadius="8dp"
+    app:cardElevation="3dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp">
+
+        <TextView
+            android:id="@+id/tvReportTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Título del Reporte"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textColor="#333333"
+            android:layout_marginEnd="12dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/ivSyncStatus" />
+
+        <TextView
+            android:id="@+id/tvReportDescription"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Categoría - Ubicación"
+            android:textSize="14sp"
+            android:textColor="#666666"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="12dp"
+            app:layout_constraintTop_toBottomOf="@id/tvReportTitle"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/ivSyncStatus" />
+
+        <ImageView
+            android:id="@+id/ivSyncStatus"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:contentDescription="Estado de sincronización"
+            android:src="@android:drawable/stat_sys_upload"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>

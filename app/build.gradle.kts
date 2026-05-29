@@ -62,4 +62,11 @@ dependencies {
 
     // RecyclerView
     implementation("androidx.recyclerview:recyclerview:1.3.2")
+
+    // Red y Consumo de API (Retrofit y Gson Converter)
+    implementation("com.squareup.retrofit2:retrofit:2.9.0")
+    implementation("com.squareup.retrofit2:converter-gson:2.9.0")
+
+// Interceptor opcional para ver las peticiones HTTP en la consola (Logcat)
+    implementation("com.squareup.okhttp3:logging-interceptor:4.11.0")
 }

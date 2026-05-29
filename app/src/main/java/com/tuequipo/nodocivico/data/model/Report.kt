@@ -13,5 +13,7 @@ data class Report(
     val location: String,
     val status: String = "PENDIENTE",
     val createdAt: String,
-    val imageUri: String? = null
+    val imageUri: String? = null,
+    // NUEVO CAMPO OBLIGATORIO PARA EL ENTREGABLE 3:
+    val isSynced: Boolean = false
 )

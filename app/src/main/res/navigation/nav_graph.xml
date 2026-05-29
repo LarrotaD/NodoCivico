@@ -69,4 +69,9 @@
             app:destination="@id/createReportFragment" />
     </fragment>
 
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.tuequipo.nodocivico.ui.reports.ProfileFragment"
+        android:label="Mi Perfil" />
+
 </navigation>

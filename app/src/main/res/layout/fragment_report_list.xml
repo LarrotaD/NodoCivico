@@ -6,6 +6,22 @@
     android:layout_height="match_parent">
 
     <TextView
+        android:id="@+id/tvConnectionBanner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#4CAF50"
+        android:text="Conectado al servidor - Datos sincronizados"
+        android:textColor="#FFFFFF"
+        android:textAlignment="center"
+        android:padding="6dp"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        android:visibility="visible"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
         android:id="@+id/tvTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -14,7 +30,17 @@
         android:textStyle="bold"
         android:padding="16dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintTop_toBottomOf="@id/tvConnectionBanner"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerReports"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvTitle"/>
 
     <TextView
         android:id="@+id/tvEmpty"
@@ -28,16 +54,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"/>
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerReports"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:visibility="gone"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvTitle"/>
 
     <ProgressBar
         android:id="@+id/progressLoading"
